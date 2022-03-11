@@ -3,8 +3,28 @@
   <head>
     <title>aaaa</title>
     <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <input type="text" id="send">
+    <button onclick="send()">押せ</button>
+    <script>
+      function send(){
+      const contents = document.getElementById("send").value
+      axios.post('https://discord.com/api/webhooks/951843674789138442/fSRak2txktEl-5BrmqzDzbOkYIRzQAohXeZtafsby83NcswOZg9DXTWDfbkwweAPuA7W', {
+    username: 'test',
+    content: contents
+  })
+  .then(response => {
+     console.log(JSON.stringify(response.data));
+  })
+  .catch(error => {
+    console.error(error);
+  })
+  .finally(() => {
+    // skip
+  });
+        }
+    </script>
   </body>
 </html>
