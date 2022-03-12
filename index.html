@@ -12,8 +12,8 @@
     <input type="text" id="content">
     <br>
     <form id="ment">
-    <input type="radio" name="mention" value="everyone">everyone</input>
-    <input type="radio" name="mention" value="here" checked>here</input>
+    <input type="radio" name="mention" value="@everyone">everyone</input>
+    <input type="radio" name="mention" value="@here" checked>here</input>
     <input type="radio" name="mention" value="" checked>なし</input>
 </form>
     <br><button onclick="send()">送信</button>
@@ -27,26 +27,11 @@ var element = document.getElementById( "ment" ) ;
 // form要素内のラジオボタングループ(name="hoge")を取得
 var radioNodeList = element.mention ;
 var a = radioNodeList.value ;
-if(a==="everyone"){
-  const respo confirm("本当にメンションしますか？")
-  if(respo==true){
-var b = radioNodeList.value ;
-    }else{
-      var b = ""
-      }
-}else if(a==="here"){
-  const respo confirm("本当にメンションしますか？")
-  if(respo==true){
-var b = radioNodeList.value ;
-    }else{
-      var b = ""
-      }
-  }
       var contents = document.getElementById("content").value
       var usename = document.getElementById("username").value
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
     username: usename,
-    content: contents+"\n"+b
+    content: contents+"\n"+a
   },{headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
