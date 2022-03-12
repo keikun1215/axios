@@ -4,6 +4,12 @@
     <title>aaaa</title>
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      .loading {
+    display: none;
+}
+
+      </style>
   </head>
   <body>
     <h5>ユーザー名</h5>
@@ -16,10 +22,21 @@
     <input type="radio" name="mention" value="@here" checked>here</input>
     <input type="radio" name="mention" value="" checked>なし</input>
 </form>
-    <br><button onclick="send()">送信</button>
+    <br><button class="btn" onclick="send()">送信</button>
 
     <script>
-   
+   $(function() {
+    $('.btn').on('click', function() {
+        $('.btn').hide();
+        $('.loading').show();
+ 
+        // 3秒後に元に戻す
+        setTimeout(function() {
+            $('.btn').show();
+            $('.loading').hide();
+        }, 3000);
+    });
+});
       function send(){
       // form要素を取得
 var element = document.getElementById( "ment" ) ;
