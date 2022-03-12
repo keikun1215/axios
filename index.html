@@ -11,17 +11,27 @@
     <input type="text" id="username">
     <h5>お知らせ内容</h5>
     <input type="text" id="content">
+    <br>
+    <input type="radio" name="mention" value="everyone">everyone
+    <input type="radio" name="mention" value="here" checked>here
+    <input type="radio" name="mention" value="" checked>なし
     <br><button onclick="send()">送信</button>
     <script>
    
       function send(){
-      
-  
+      let mentionoption = document.getElementsByName('mention');
+  let checkValue = '';
+
+  for (let i = 0; i < len; i++){
+    if (fruitRadio.item(i).checked){
+      checkValue = mentionoption.item(i).value;
+    }
+  }
       var contents = document.getElementById("content").value
       var usename = document.getElementById("username").value
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
     username: usename,
-    content: contents,
+    content: contents+"\n"+checkValue
   },{headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
