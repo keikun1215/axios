@@ -22,20 +22,33 @@
     <input type="radio" name="mention" value="@here" checked>here</input>
     <input type="radio" name="mention" value="" checked>なし</input>
 </form>
-    <br><button class="btn" onclick="send()">送信</button>
+    <br><button id="refresh" onclick="send()">送信</button>
 
     <script>
-   $(function() {
-    $('.btn').on('click', function() {
-        $('.btn').hide();
-        $('.loading').show();
- 
-        // 3秒後に元に戻す
-        setTimeout(function() {
-            $('.btn').show();
-            $('.loading').hide();
-        }, 3000);
-    });
+   $(function(){
+
+  //更新ボタンクリック
+  $("#refresh").click(function (event) {
+    //ボタンクリック無効化
+    if (cancelFlag == false) {
+      $("#refresh").prop("disabled", true).addClass("btn-pink");
+
+      //処理内容
+        $.ajax({
+          url: "https://?????",
+          type: "GET",
+          success: function () {
+            console.log("OK");
+          },
+        });
+
+      //ボタンクリック有効化
+      setTimeout(function () {
+        $("#refresh").prop("disabled", false).removeClass("btn-pink");
+      }, 1000);
+    }
+  });
+
 });
       function send(){
       // form要素を取得
