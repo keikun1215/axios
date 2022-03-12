@@ -22,10 +22,11 @@
     <input type="radio" name="mention" value="@here" checked>here</input>
     <input type="radio" name="mention" value="" checked>なし</input>
 </form>
-    <br><button id="refresh" onclick="send()">送信</button>
+    <br><button id="subm" onclick="send()">送信</button>
 
     <script>
       function send(){
+        document.getElementById("subm").disabled = true;
       // form要素を取得
 var element = document.getElementById( "ment" ) ;
 
@@ -50,6 +51,7 @@ var a = radioNodeList.value ;
   .finally(() => {
     // skip
   });
+        document.getElementById("subm").disabled =false;
         }
     </script>
   </body>
