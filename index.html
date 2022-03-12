@@ -25,31 +25,6 @@
     <br><button id="refresh" onclick="send()">送信</button>
 
     <script>
-   $(function(){
-
-  //更新ボタンクリック
-  $("#refresh").click(function (event) {
-    //ボタンクリック無効化
-    if (cancelFlag == false) {
-      $("#refresh").prop("disabled", true).addClass("btn-pink");
-
-      //処理内容
-        $.ajax({
-          url: "https://?????",
-          type: "GET",
-          success: function () {
-            console.log("OK");
-          },
-        });
-
-      //ボタンクリック有効化
-      setTimeout(function () {
-        $("#refresh").prop("disabled", false).removeClass("btn-pink");
-      }, 1000);
-    }
-  });
-
-});
       function send(){
       // form要素を取得
 var element = document.getElementById( "ment" ) ;
