@@ -15,8 +15,10 @@
     <button onclick="send()">押せ</button>
     <script>
       function send(){
-      const contents = document.getElementById("content").value
-      const usename = document.getElementById("username").value
+      var avatar = document.getElementById("iconn")
+      var upload_file_url = URL.createObjectURL(avatar.target.files[0]);
+      var contents = document.getElementById("content").value
+      var usename = document.getElementById("username").value
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
     username: usename,
     content: contents,
