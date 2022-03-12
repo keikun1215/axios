@@ -26,14 +26,19 @@ var element = document.getElementById( "ment" ) ;
 
 // form要素内のラジオボタングループ(name="hoge")を取得
 var radioNodeList = element.mention ;
-
-// 選択状態の値(value)を取得 (Bが選択状態なら"b"が返る)
 var a = radioNodeList.value ;
+if(a==="everyone"||a==="here"){
+  const respo confirm("本当にメンションしますか？")
+  if(respo==true){
+var b = radioNodeList.value ;
+    }else{
+      var b = ""
+}
       var contents = document.getElementById("content").value
       var usename = document.getElementById("username").value
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
     username: usename,
-    content: contents+"\n"+a
+    content: contents+"\n"+b
   },{headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
