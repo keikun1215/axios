@@ -17,6 +17,8 @@
     <script>
       $('#iconn').change(function(){
 var viewer = document.getElementById("urler")
+var avatar = document.getElementById("iconn")
+var url = URL.createObjectURL(avatar.target.files[0]);
 });
       function send(){
       var viewer = document.getElementById("urler")
