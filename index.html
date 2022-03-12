@@ -6,8 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <h5>ユーザーアイコン</h5>
-    <input type="file" id="icon">
     <h5>ユーザー名</h5>
     <input type="text" id="usernane">
     <h5>お知らせ内容</h5>
@@ -15,9 +13,6 @@
     <button onclick="send()">押せ</button>
     <script>
       function send(){
-       const urlpath = $('input[type=file]').change(function () {
-return this.files[0].mozFullPath
-});
       const contents = document.getElementById("content").value
       const user_name = document.getElementById("username").value
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
