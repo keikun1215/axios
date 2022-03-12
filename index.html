@@ -51,8 +51,10 @@ var a = radioNodeList.value ;
   .finally(() => {
     // skip
   });
-        function syori(){document.getElementById("subm").disabled =false;}
-        setTimeOut(syori(), 3000);
+           
+        setTimeOut(function() {
+  document.getElementById("subm").disabled =false;
+}, 3000);
         }
     </script>
   </body>
