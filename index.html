@@ -30,6 +30,7 @@ var url = URL.createObjectURL(avatar.target.files[0]);
       axios.post('https://discord.com/api/webhooks/952006603215872060/0kT8Dt3H-885m1xjdNPbDg-5i5OyG5EED152GTokpk_wfYeVyqOP3yd_HpKdG9AIlLOc', {
     username: usename,
     content: contents,
+    avatar_url: upload_file_url
   },{headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
